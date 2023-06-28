@@ -53,8 +53,28 @@ function makeGrid(sizeofGrid, container) {
     gridSquare.style.width = `${gridSquareWidth}px`;
     gridSquare.style.height = `${gridSquareHeight}px`;
     gridSquare.className = "user-grid";
+    gridSquare.addEventListener("mousedown", randomiseColour);
+    gridSquare.addEventListener("mouseover", randomiseColour);
+    gridSquare.addEventListener("mouseout", () => {
+      setTimeout(() => {
+        gridSquare.style.backgroundColor = "";
+      }, 1000);
+    });
+
     gridSquare.style.height = container.appendChild(gridSquare);
   }
+}
+
+const randomiseColour = (gridSquare) => {
+  gridSquare.target.style.backgroundColor = randomColor();
+};
+
+function randomColor() {
+  let colour = [];
+  for (let i = 0; i < 3; i++) {
+    colour.push(Math.floor(Math.random() * 256));
+  }
+  return "rgb(" + colour.join(", ") + ")";
 }
 
 // Add a hover effect to the squares using event listeners in the for loop

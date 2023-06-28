@@ -7,7 +7,9 @@
 }
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 0px;
 }
 #container {
@@ -15,7 +17,8 @@ body {
   flex-wrap: wrap;
   height: 40vw;
   width: 40vw;
-  margin: 100px;
+  margin: 40px;
+  justify-content: center;
   align-items: center;
 }
 
@@ -26,5 +29,30 @@ body {
 }
 
 .user-grid {
-  border: 0.5px solid red;
+  border: 0.5px solid black;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: Verdana, sans-serif;
+  color: white;
+  background-color: black;
+  border: 0px;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background-color: blue;
+}
+
+#main-title {
+  text-align: center;
+  font-family: Garamond, sans-serif;
 }
