@@ -28,6 +28,35 @@ function mouseOut() {
   document.getElementsByClassName("grid-square").style.color = "";
 }
 
+function getInput() {
+  let input = parseInt(prompt("Please enter the size of the grid"));
+  const container = document.querySelector("#container");
+
+  if (input <= 100 && input > 0) {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    document.documentElement.style.setProperty("--size-of-grid", input);
+    makeGrid(input, container);
+  } else {
+    alert("This is not a valid size. Please enter a grid size between 1-100");
+  }
+}
+
+function makeGrid(sizeofGrid, container) {
+  const width = container.offsetWidth;
+  const height = container.offsetHeight;
+  const gridSquareWidth = width / sizeofGrid;
+  const gridSquareHeight = height / sizeofGrid;
+  for (let i = 0; i < sizeofGrid * sizeofGrid; i++) {
+    const gridSquare = document.createElement("div");
+    gridSquare.style.width = `${gridSquareWidth}px`;
+    gridSquare.style.height = `${gridSquareHeight}px`;
+    gridSquare.className = "user-grid";
+    gridSquare.style.height = container.appendChild(gridSquare);
+  }
+}
+
 // Add a hover effect to the squares using event listeners in the for loop
 // Change the div's background colour while mouse is hovering
 

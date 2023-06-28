@@ -1,3 +1,7 @@
+:root {
+  --size-of-grid: 16;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,12 +15,16 @@ body {
   flex-wrap: wrap;
   height: 40vw;
   width: 40vw;
-  border: 1px solid red;
   margin: 100px;
+  align-items: center;
 }
 
 .grid-square {
   border: 0.5px solid #000000;
   width: 6.25%;
   height: 6.25%;
+}
+
+.user-grid {
+  border: 0.5px solid red;
 }
